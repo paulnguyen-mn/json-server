@@ -2,6 +2,7 @@ const updateNotifier = require('update-notifier')
 const yargs = require('yargs')
 const run = require('./run')
 const pkg = require('../../package.json')
+require('dotenv').config()
 
 module.exports = function() {
   updateNotifier({ pkg }).notify()
@@ -13,7 +14,7 @@ module.exports = function() {
       port: {
         alias: 'p',
         description: 'Set port',
-        default: 3000
+        default: process.env.PORT || 3000
       },
       host: {
         alias: 'H',
